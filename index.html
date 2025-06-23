@@ -1,12 +1,1012 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pedidos - El Sabor de las Gordis</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Sabor de las Gordis - Pedidos Online</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter for a clean look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Light gray background */
+            color: #333;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
 </head>
-<body class="bg-yellow-50 font-sans">
-  <!-- CONTENIDO OMITIDO POR BREVEDAD -->
+<body class="min-h-screen flex flex-col items-center p-4">
+
+    <!-- Header Section -->
+    <header class="w-full max-w-4xl bg-white shadow-lg rounded-xl p-6 text-center mb-8">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-purple-700 mb-2">El Sabor de las Gordis</h1>
+        <p class="text-xl md:text-2xl font-semibold text-gray-700">¡Tu antojo mexicano a un clic de distancia!</p>
+        <p class="text-gray-600 mt-4 text-sm md:text-base">
+            <i class="fas fa-map-marker-alt mr-2 text-purple-600"></i>
+            Carr. a La Paz km 1-No 706, La Olleria, 78726 Matehuala, S.L.P.
+            <span class="block md:inline-block">(frente al oxxo al lado de la escuela Ma del carmen castillo)</span>
+        </p>
+        <p class="text-gray-600 text-sm md:text-base">
+            <i class="fas fa-phone mr-2 text-purple-600"></i>
+            Teléfono: 488 126 5262
+        </p>
+    </header>
+
+    <!-- Navigation Index Top -->
+    <nav class="w-full max-w-4xl bg-white shadow-lg rounded-xl p-4 mb-8">
+        <h3 class="text-xl font-bold text-gray-700 mb-3 text-center">Navega por nuestro menú:</h3>
+        <ul class="flex flex-wrap justify-center gap-x-6 gap-y-3">
+            <li><a href="#gorditas-section" class="text-purple-600 hover:text-purple-800 font-semibold transition duration-200">Gorditas</a></li>
+            <li><a href="#tacos-harina-section" class="text-blue-600 hover:text-blue-800 font-semibold transition duration-200">Tacos de Harina</a></li>
+            <li><a href="#huevos-gusto-section" class="text-green-600 hover:text-green-800 font-semibold transition duration-200">Huevos al Gusto</a></li>
+            <li><a href="#chilaquiles-section" class="text-red-600 hover:text-red-800 font-semibold transition duration-200">Chilaquiles</a></li>
+            <li><a href="#hotcakes-section" class="text-orange-600 hover:text-orange-800 font-semibold transition duration-200">Hotcakes</a></li>
+            <li><a href="#bebidas-section" class="text-teal-600 hover:text-teal-800 font-semibold transition duration-200">Bebidas</a></li>
+            <li><a href="#combos-section" class="text-yellow-600 hover:text-yellow-800 font-semibold transition duration-200">Combos</a></li>
+        </ul>
+    </nav>
+
+    <main class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- Menu Section -->
+        <section class="bg-white shadow-lg rounded-xl p-6">
+            <h2 class="text-3xl font-bold text-purple-700 mb-6 flex items-center">
+                <i class="fas fa-utensils mr-3"></i> Nuestro Menú
+            </h2>
+
+            <!-- Gorditas Section -->
+            <div id="gorditas-section" class="mb-8 p-4 bg-purple-50 rounded-lg shadow-inner">
+                <h3 class="text-2xl font-semibold text-purple-600 mb-4 flex items-center justify-center">
+                    <i class="fas fa-tortilla mr-2"></i> Gorditas
+                </h3>
+                <!-- Placeholder Image for Gorditas -->
+                <img src="https://placehold.co/150x150/EDE9FE/5B21B6?text=Gorditas" alt="Imagen de Gorditas" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <!-- Updated Gorditas section for quantity and guiso selection -->
+                <div id="gorditas-menu" class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+                    <div>
+                        <label for="gordita-guiso-select" class="block text-gray-700 text-sm font-bold mb-2">Elige tu guiso:</label>
+                        <select id="gordita-guiso-select" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500">
+                            <!-- Options will be dynamically loaded here by JavaScript -->
+                        </select>
+                    </div>
+                    <div>
+                        <label for="gordita-quantity" class="block text-gray-700 text-sm font-bold mb-2">Cantidad:</label>
+                        <input type="number" id="gordita-quantity" value="1" min="1" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500">
+                    </div>
+                    <div class="md:col-span-2">
+                        <button onclick="addGorditaToCart()" class="mt-4 w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                            Agregar Gordita(s) al Pedido
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tacos de Harina Section -->
+            <div id="tacos-harina-section" class="mb-8 p-4 bg-blue-50 rounded-lg shadow-inner">
+                <h3 class="text-2xl font-semibold text-blue-600 mb-4 flex items-center justify-center">
+                    <i class="fas fa-taco mr-2"></i> Tacos de Harina
+                </h3>
+                <!-- Placeholder Image for Tacos de Harina -->
+                <img src="https://placehold.co/150x150/DBEAFE/1D4ED8?text=Tacos" alt="Imagen de Tacos de Harina" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <!-- Updated Tacos de Harina section for quantity and guiso selection -->
+                <div id="tacos-harina-menu" class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+                    <div>
+                        <label for="taco-harina-guiso-select" class="block text-gray-700 text-sm font-bold mb-2">Elige tu guiso:</label>
+                        <select id="taco-harina-guiso-select" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500">
+                            <!-- Options will be dynamically loaded here by JavaScript -->
+                        </select>
+                    </div>
+                    <div>
+                        <label for="taco-harina-quantity" class="block text-gray-700 text-sm font-bold mb-2">Cantidad:</label>
+                        <input type="number" id="taco-harina-quantity" value="1" min="1" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500">
+                    </div>
+                    <div class="md:col-span-2">
+                        <button onclick="addTacoToCart()" class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                            Agregar Taco(s) de Harina al Pedido
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Huevos al Gusto Section -->
+            <div id="huevos-gusto-section" class="mb-8 p-4 bg-green-50 rounded-lg shadow-inner">
+                <h3 class="text-2xl font-semibold text-green-600 mb-4 flex items-center justify-center">
+                    <i class="fas fa-egg mr-2"></i> Huevos al Gusto ($65)
+                </h3>
+                <!-- Placeholder Image for Huevos al Gusto -->
+                <img src="https://placehold.co/150x150/ECFDF5/047857?text=Huevos" alt="Imagen de Huevos al Gusto" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <div class="mb-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-1">Tipo:</label>
+                    <div id="huevos-tipos" class="flex flex-wrap gap-2">
+                        <!-- Huevos tipos will be dynamically loaded here -->
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-1">Complementos (+$10 cada uno):</label>
+                    <div id="huevos-complementos" class="flex flex-wrap gap-2">
+                        <!-- Huevos complementos will be dynamically loaded here -->
+                    </div>
+                </div>
+                <button onclick="addHuevosToCart()" class="mt-4 w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                    Agregar Huevos al Pedido
+                </button>
+            </div>
+
+            <!-- Chilaquiles Section -->
+            <div id="chilaquiles-section" class="mb-8 p-4 bg-red-50 rounded-lg shadow-inner">
+                <h3 class="text-2xl font-semibold text-red-600 mb-4 flex items-center justify-center">
+                    <i class="fas fa-pepper-hot mr-2"></i> Chilaquiles ($90)
+                </h3>
+                <!-- Placeholder Image for Chilaquiles -->
+                <img src="https://placehold.co/150x150/FEF2F2/DC2626?text=Chilaquiles" alt="Imagen de Chilaquiles" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <div class="mb-2">
+                    <label class="block text-gray-700 text-sm font-bold mb-1">Salsa:</label>
+                    <div id="chilaquiles-salsas" class="flex flex-wrap gap-2">
+                        <!-- Chilaquiles salsas will be dynamically loaded here -->
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-gray-700 text-sm font-bold mb-1">Extras:</label>
+                    <div id="chilaquiles-extras" class="grid grid-cols-2 gap-2 text-sm">
+                        <!-- Chilaquiles extras will be dynamically loaded here -->
+                    </div>
+                </div>
+                <button onclick="addChilaquilesToCart()" class="mt-4 w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                    Agregar Chilaquiles al Pedido
+                </button>
+            </div>
+
+            <!-- Hotcakes Section -->
+            <div id="hotcakes-section" class="mb-8 p-4 bg-orange-50 rounded-lg shadow-inner">
+                <h3 class="text-2xl font-semibold text-orange-600 mb-4 flex items-center justify-center">
+                    <i class="fas fa-pancakes mr-2"></i> Hotcakes
+                </h3>
+                <!-- Placeholder Image for Hotcakes -->
+                <img src="https://placehold.co/150x150/FFF7ED/B45309?text=Hotcakes" alt="Imagen de Hotcakes" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <p class="text-lg text-gray-800 mb-4">3 piezas por $70</p>
+                <button onclick="addFixedItemToCart('Hotcakes (3 piezas)', 70)" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                    Agregar Hotcakes al Pedido
+                </button>
+            </div>
+
+            <!-- Bebidas Section -->
+            <div id="bebidas-section" class="mb-8 p-4 bg-teal-50 rounded-lg shadow-inner">
+                <h3 class="text-2xl font-semibold text-teal-600 mb-4 flex items-center justify-center">
+                    <i class="fas fa-cocktail mr-2"></i> Bebidas
+                </h3>
+                <!-- Placeholder Image for Bebidas -->
+                <img src="https://placehold.co/150x150/F0FDFA/0D9488?text=Bebidas" alt="Imagen de Bebidas" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <div id="bebidas-menu" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- Bebidas items will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <!-- Combos Section -->
+            <div id="combos-section" class="p-4 bg-yellow-50 rounded-lg shadow-inner">
+                <h3 class="text-2xl font-semibold text-yellow-600 mb-4 flex items-center justify-center">
+                    <i class="fas fa-boxes mr-2"></i> Combos
+                </h3>
+                <!-- Placeholder Image for Combos -->
+                <img src="https://placehold.co/150x150/FFFBEB/B45309?text=Combos" alt="Imagen de Combos" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <div id="combos-menu" class="grid grid-cols-1 gap-4">
+                    <!-- Combos will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Customer Form & Order Summary -->
+        <div class="flex flex-col gap-8">
+            <!-- Customer Form -->
+            <section class="bg-white shadow-lg rounded-xl p-6">
+                <h2 class="text-3xl font-bold text-purple-700 mb-6 flex items-center">
+                    <i class="fas fa-user-circle mr-3"></i> Tus Datos
+                </h2>
+                <form id="customer-form" class="space-y-4">
+                    <div>
+                        <label for="customer-name" class="block text-gray-700 text-sm font-bold mb-2">Nombre:</label>
+                        <input type="text" id="customer-name" name="name" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500" placeholder="Tu nombre completo">
+                    </div>
+                    <div>
+                        <label for="customer-address" class="block text-gray-700 text-sm font-bold mb-2">Dirección:</label>
+                        <input type="text" id="customer-address" name="address" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500" placeholder="Calle, número, colonia">
+                    </div>
+                    <div>
+                        <label for="customer-phone" class="block text-gray-700 text-sm font-bold mb-2">Teléfono:</label>
+                        <input type="tel" id="customer-phone" name="phone" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500" placeholder="Ej. 4881234567">
+                    </div>
+                    <div>
+                        <label for="customer-reference" class="block text-gray-700 text-sm font-bold mb-2">Referencia (entre calles):</label>
+                        <input type="text" id="customer-reference" name="reference" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500" placeholder="Ej. entre Juarez y Madero">
+                    </div>
+                    <div>
+                        <label for="customer-comments" class="block text-gray-700 text-sm font-bold mb-2">Comentarios adicionales:</label>
+                        <textarea id="customer-comments" name="comments" rows="3" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500" placeholder="Alguna indicación especial para tu pedido..."></textarea>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Order Summary Section -->
+            <section class="bg-white shadow-lg rounded-xl p-6">
+                <h2 class="text-3xl font-bold text-purple-700 mb-6 flex items-center">
+                    <i class="fas fa-shopping-cart mr-3"></i> Resumen de Pedido
+                </h2>
+                <div id="order-list" class="mb-4 max-h-60 overflow-y-auto border border-gray-200 rounded-lg p-2">
+                    <p class="text-gray-500 text-center" id="empty-cart-message">Tu carrito está vacío.</p>
+                </div>
+
+                <div class="flex justify-between items-center text-xl font-semibold mb-4 border-t pt-4">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2">Propina:</label>
+                    <div id="tip-options" class="flex flex-wrap gap-2">
+                        <button class="tip-button bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-200" data-tip="0">0%</button>
+                        <button class="tip-button bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-200" data-tip="0.05">5%</button>
+                        <button class="tip-button bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-200" data-tip="0.10">10%</button>
+                        <button class="tip-button bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-200" data-tip="0.15">15%</button>
+                        <button class="tip-button bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-lg transition duration-200" data-tip="0.20">20%</button>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center text-2xl font-bold text-purple-700 mb-6 border-t pt-4">
+                    <span>Total:</span>
+                    <span id="total">$0.00</span>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button id="clear-order-btn" class="flex-1 bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                        <i class="fas fa-trash-alt mr-2"></i> Limpiar Pedido
+                    </button>
+                    <button id="place-order-btn" class="flex-1 bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg transition duration-300 ease-in-out transform hover:scale-105">
+                        <i class="fab fa-whatsapp mr-2"></i> Realizar Pedido
+                    </button>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Navigation Index Bottom (repeated for convenience) -->
+    <nav class="w-full max-w-4xl bg-white shadow-lg rounded-xl p-4 mt-8 mb-8">
+        <h3 class="text-xl font-bold text-gray-700 mb-3 text-center">Navega por nuestro menú:</h3>
+        <ul class="flex flex-wrap justify-center gap-x-6 gap-y-3">
+            <li><a href="#gorditas-section" class="text-purple-600 hover:text-purple-800 font-semibold transition duration-200">Gorditas</a></li>
+            <li><a href="#tacos-harina-section" class="text-blue-600 hover:text-blue-800 font-semibold transition duration-200">Tacos de Harina</a></li>
+            <li><a href="#huevos-gusto-section" class="text-green-600 hover:text-green-800 font-semibold transition duration-200">Huevos al Gusto</a></li>
+            <li><a href="#chilaquiles-section" class="text-red-600 hover:text-red-800 font-semibold transition duration-200">Chilaquiles</a></li>
+            <li><a href="#hotcakes-section" class="text-orange-600 hover:text-orange-800 font-semibold transition duration-200">Hotcakes</a></li>
+            <li><a href="#bebidas-section" class="text-teal-600 hover:text-teal-800 font-semibold transition duration-200">Bebidas</a></li>
+            <li><a href="#combos-section" class="text-yellow-600 hover:text-yellow-800 font-semibold transition duration-200">Combos</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50 p-4">
+        <div class="bg-white rounded-lg p-8 shadow-2xl max-w-sm w-full text-center">
+            <i class="fas fa-check-circle text-green-500 text-6xl mb-4"></i>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">¡Pedido Enviado!</h3>
+            <p class="text-gray-700 mb-6">Tu pedido ha sido enviado con éxito a "El Sabor de las Gordis" a través de WhatsApp. ¡Pronto te contactarán!</p>
+            <button onclick="closeModal()" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out">
+                Cerrar
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const WHATSAPP_NUMBER = '4881265262'; // WhatsApp number for "El Sabor de las Gordis"
+
+        // --- Data Definitions ---
+        const GUISOS_SIN_CARNE = [
+            { name: 'Frijoles con Queso', type: 'sin-carne' },
+            { name: 'Huevo Verde', type: 'sin-carne' },
+            { name: 'Huevo Rojo', type: 'sin-carne' },
+            { name: 'Rajas con Queso', type: 'sin-carne' },
+            { name: 'Papas con Chorizo', type: 'sin-carne' }
+        ];
+
+        const GUISOS_CON_CARNE = [
+            { name: 'Mole de Pollo', type: 'con-carne' },
+            { name: 'Deshebrada', type: 'con-carne' },
+            { name: 'Chicharrón Prensado', type: 'con-carne' },
+            { name: 'Arrachera', type: 'con-carne' },
+            { name: 'Asado', type: 'con-carne' }
+        ];
+
+        const GORDITAS_BASE_PRICE = 16;
+        const GORDITAS_CARNE_EXTRA = 1; // +$1 for carne guiso
+
+        const TACOS_HARINA_BASE_PRICE = 12;
+        const TACOS_HARINA_CARNE_EXTRA = 2; // +$2 for carne guiso
+
+        const HUEVOS_AL_GUSTO_DATA = {
+            basePrice: 65,
+            tipos: ['Revueltos', 'Estrellados', 'A la Mexicana'],
+            complementos: [
+                { name: 'Jamón', price: 10 },
+                { name: 'Chorizo', price: 10 }
+            ]
+        };
+
+        const CHILAQUILES_DATA = {
+            basePrice: 90,
+            salsas: ['Roja', 'Verde', 'Picosa'],
+            extras: [
+                { name: 'Huevo', price: 5 },
+                { name: 'Guiso sin carne', price: 5, type: 'guiso-sin-carne' },
+                { name: 'Guiso con carne (Pollo, Arrachera, Chicharrón, Pastor)', price: 9, type: 'guiso-con-carne' },
+                { name: 'Extra Queso', price: 10 },
+                { name: 'Pan extra rebanado', price: 5 }
+            ]
+        };
+
+        const HOTCAKES_DATA = {
+            name: 'Hotcakes (3 piezas)',
+            price: 70
+        };
+
+        const BEBIDAS_DATA = [
+            { name: 'Refresco familia Coca-Cola', price: 25, type: 'refresco' },
+            { name: 'Agua del Día', price: 15, type: 'agua' },
+            { name: 'Agua para Nescafé', price: 25, type: 'agua' },
+            { name: 'Licuado de Plátano', price: 25, type: 'licuado' },
+            { name: 'Licuado de Fresa', price: 25, type: 'licuado' },
+            { name: 'Licuado de Chocolate', price: 25, type: 'licuado' }
+        ];
+
+        const COMBOS_DATA = [
+            {
+                name: 'Combo Desayuno 1',
+                price: 45,
+                description: '2 gorditas sin carne, 1 agua del día'
+            },
+            {
+                name: 'Combo Desayuno 2',
+                price: 110,
+                description: 'Chilaquiles naturales, 1 huevo, 1 pan rebanado, 1 agua del día'
+            },
+            {
+                name: 'Combo El GordiFan',
+                price: 70,
+                description: '1 gordita sin carne, 1 gordita con carne, 1 taco con carne, 1 refresco'
+            },
+            {
+                name: 'Combo Infantil',
+                price: 60,
+                description: '1 gordita sin carne, 1 hotcake, 1 agua del día'
+            },
+            {
+                name: 'Combo Huevudo',
+                price: 115,
+                description: 'Huevos con complemento, 1 gordita sin carne, 1 agua para Nescafé'
+            },
+            {
+                name: 'Combo Chilaquiles con Todo',
+                price: 139,
+                description: 'Chilaquiles con carne, doble queso, pan rebanado, refresco'
+            },
+            {
+                name: 'Combo Pa’ la Raza',
+                price: 440,
+                description: '20 gorditas surtidas ($16 c/u), 10 tacos surtidos ($12 c/u), 5 aguas de sabor'
+            }
+        ];
+
+        // --- Global State ---
+        let shoppingCart = []; // Stores { name: 'Item Name', price: X, quantity: Y }
+        let currentTipPercentage = 0; // 0.00, 0.05, 0.10, etc.
+
+        // --- DOM Elements ---
+        const gorditasMenu = document.getElementById('gorditas-menu');
+        const tacosHarinaMenu = document.getElementById('tacos-harina-menu');
+        const huevosTipos = document.getElementById('huevos-tipos');
+        const huevosComplementos = document.getElementById('huevos-complementos');
+        const chilaquilesSalsas = document.getElementById('chilaquiles-salsas');
+        const chilaquilesExtras = document.getElementById('chilaquiles-extras');
+        const bebidasMenu = document.getElementById('bebidas-menu');
+        const combosMenu = document.getElementById('combos-menu');
+
+        const orderList = document.getElementById('order-list');
+        const subtotalSpan = document.getElementById('subtotal');
+        const totalSpan = document.getElementById('total');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+
+        const customerNameInput = document.getElementById('customer-name');
+        const customerAddressInput = document.getElementById('customer-address');
+        const customerPhoneInput = document.getElementById('customer-phone');
+        const customerReferenceInput = document.getElementById('customer-reference');
+        const customerCommentsInput = document.getElementById('customer-comments');
+
+        const clearOrderBtn = document.getElementById('clear-order-btn');
+        const placeOrderBtn = document.getElementById('place-order-btn');
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const tipButtons = document.querySelectorAll('.tip-button');
+
+
+        // --- Utility Functions ---
+
+        /**
+         * Formats a number as currency.
+         * @param {number} amount - The amount to format.
+         * @returns {string} The formatted currency string.
+         */
+        function formatCurrency(amount) {
+            return `$${amount.toFixed(2)}`;
+        }
+
+        // --- Menu Rendering Functions ---
+
+        /**
+         * Renders the Gorditas menu with quantity and guiso selection.
+         */
+        function renderGorditasMenu() {
+            const allGuisos = [...GUISOS_SIN_CARNE, ...GUISOS_CON_CARNE];
+            gorditasMenu.innerHTML = `
+                <div>
+                    <label for="gordita-guiso-select" class="block text-gray-700 text-sm font-bold mb-2">Elige tu guiso:</label>
+                    <select id="gordita-guiso-select" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500">
+                        ${allGuisos.map(guiso => {
+                            const finalPrice = GORDITAS_BASE_PRICE + (guiso.type === 'con-carne' ? GORDITAS_CARNE_EXTRA : 0);
+                            return `<option value="${guiso.name}|${guiso.type}|${finalPrice}">${guiso.name} (${formatCurrency(finalPrice)})</option>`;
+                        }).join('')}
+                    </select>
+                </div>
+                <div>
+                    <label for="gordita-quantity" class="block text-gray-700 text-sm font-bold mb-2">Cantidad:</label>
+                    <input type="number" id="gordita-quantity" value="1" min="1" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-purple-500">
+                </div>
+                <div class="md:col-span-2">
+                    <button onclick="addGorditaToCart()" class="mt-4 w-full bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                        Agregar Gordita(s) al Pedido
+                    </button>
+                </div>
+            `;
+        }
+
+        /**
+         * Adds selected Gorditas to the cart.
+         */
+        function addGorditaToCart() {
+            const selectElement = document.getElementById('gordita-guiso-select');
+            const quantityInput = document.getElementById('gordita-quantity');
+
+            const selectedOptionValue = selectElement.value;
+            const [guisoName, guisoType, pricePerUnitStr] = selectedOptionValue.split('|');
+            const pricePerUnit = parseFloat(pricePerUnitStr);
+            const quantity = parseInt(quantityInput.value);
+
+            if (isNaN(quantity) || quantity < 1) {
+                showToast('La cantidad de gorditas debe ser un número válido mayor o igual a 1.', 'red');
+                return;
+            }
+
+            const itemName = `Gordita de ${guisoName}`;
+            addItemToCart(itemName, pricePerUnit, quantity);
+
+            // Reset quantity to 1 after adding to cart
+            quantityInput.value = 1;
+        }
+
+        /**
+         * Renders the Tacos de Harina menu with quantity and guiso selection.
+         */
+        function renderTacosHarinaMenu() {
+            const allGuisos = [...GUISOS_SIN_CARNE, ...GUISOS_CON_CARNE];
+            tacosHarinaMenu.innerHTML = `
+                <div>
+                    <label for="taco-harina-guiso-select" class="block text-gray-700 text-sm font-bold mb-2">Elige tu guiso:</label>
+                    <select id="taco-harina-guiso-select" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500">
+                        ${allGuisos.map(guiso => {
+                            const finalPrice = TACOS_HARINA_BASE_PRICE + (guiso.type === 'con-carne' ? TACOS_HARINA_CARNE_EXTRA : 0);
+                            return `<option value="${guiso.name}|${guiso.type}|${finalPrice}">${guiso.name} (${formatCurrency(finalPrice)})</option>`;
+                        }).join('')}
+                    </select>
+                </div>
+                <div>
+                    <label for="taco-harina-quantity" class="block text-gray-700 text-sm font-bold mb-2">Cantidad:</label>
+                    <input type="number" id="taco-harina-quantity" value="1" min="1" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-blue-500">
+                </div>
+                <div class="md:col-span-2">
+                    <button onclick="addTacoToCart()" class="mt-4 w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                        Agregar Taco(s) de Harina al Pedido
+                    </button>
+                </div>
+            `;
+        }
+
+        /**
+         * Adds selected Tacos de Harina to the cart.
+         */
+        function addTacoToCart() {
+            const selectElement = document.getElementById('taco-harina-guiso-select');
+            const quantityInput = document.getElementById('taco-harina-quantity');
+
+            const selectedOptionValue = selectElement.value;
+            const [guisoName, guisoType, pricePerUnitStr] = selectedOptionValue.split('|');
+            const pricePerUnit = parseFloat(pricePerUnitStr);
+            const quantity = parseInt(quantityInput.value);
+
+            if (isNaN(quantity) || quantity < 1) {
+                showToast('La cantidad de tacos debe ser un número válido mayor o igual a 1.', 'red');
+                return;
+            }
+
+            const itemName = `Taco de Harina de ${guisoName}`;
+            addItemToCart(itemName, pricePerUnit, quantity);
+
+            // Reset quantity to 1 after adding to cart
+            quantityInput.value = 1;
+        }
+
+
+        /**
+         * Renders Huevos al Gusto options.
+         */
+        function renderHuevosAlGustoOptions() {
+            huevosTipos.innerHTML = '';
+            HUEVOS_AL_GUSTO_DATA.tipos.forEach((tipo, index) => {
+                const inputId = `huevo-tipo-${index}`;
+                huevosTipos.innerHTML += `
+                    <div class="flex items-center">
+                        <input type="radio" id="${inputId}" name="huevo-tipo" value="${tipo}" class="form-radio text-green-500" ${index === 0 ? 'checked' : ''}>
+                        <label for="${inputId}" class="ml-2 text-gray-700">${tipo}</label>
+                    </div>
+                `;
+            });
+
+            huevosComplementos.innerHTML = '';
+            HUEVOS_AL_GUSTO_DATA.complementos.forEach((comp, index) => {
+                const inputId = `huevo-comp-${index}`;
+                huevosComplementos.innerHTML += `
+                    <div class="flex items-center">
+                        <input type="checkbox" id="${inputId}" value="${comp.name}" data-price="${comp.price}" class="form-checkbox text-green-500 rounded">
+                        <label for="${inputId}" class="ml-2 text-gray-700">${comp.name} (+${formatCurrency(comp.price)})</label>
+                    </div>
+                `;
+            });
+        }
+
+        /**
+         * Adds selected Huevos al Gusto to cart.
+         */
+        function addHuevosToCart() {
+            const selectedTipo = document.querySelector('input[name="huevo-tipo"]:checked')?.value;
+            if (!selectedTipo) {
+                showToast('Por favor, selecciona un tipo de huevo.', 'red');
+                return;
+            }
+
+            let itemPrice = HUEVOS_AL_GUSTO_DATA.basePrice;
+            const selectedComplementos = [];
+            document.querySelectorAll('#huevos-complementos input[type="checkbox"]:checked').forEach(checkbox => {
+                selectedComplementos.push(checkbox.value);
+                itemPrice += parseFloat(checkbox.dataset.price);
+            });
+
+            let itemName = `Huevos ${selectedTipo}`;
+            if (selectedComplementos.length > 0) {
+                itemName += ` con ${selectedComplementos.join(', ')}`;
+            } else {
+                itemName += ' (naturales)';
+            }
+
+            addItemToCart(itemName, itemPrice);
+        }
+
+        /**
+         * Renders Chilaquiles options.
+         */
+        function renderChilaquilesOptions() {
+            chilaquilesSalsas.innerHTML = '';
+            CHILAQUILES_DATA.salsas.forEach((salsa, index) => {
+                const inputId = `chila-salsa-${index}`;
+                chilaquilesSalsas.innerHTML += `
+                    <div class="flex items-center">
+                        <input type="radio" id="${inputId}" name="chila-salsa" value="${salsa}" class="form-radio text-red-500" ${index === 0 ? 'checked' : ''}>
+                        <label for="${inputId}" class="ml-2 text-gray-700">${salsa}</label>
+                    </div>
+                `;
+            });
+
+            chilaquilesExtras.innerHTML = '';
+            CHILAQUILES_DATA.extras.forEach((extra, index) => {
+                const inputId = `chila-extra-${index}`;
+                chilaquilesExtras.innerHTML += `
+                    <div class="flex items-center">
+                        <input type="checkbox" id="${inputId}" value="${extra.name}" data-price="${extra.price}" class="form-checkbox text-red-500 rounded">
+                        <label for="${inputId}" class="ml-2 text-gray-700">${extra.name} (+${formatCurrency(extra.price)})</label>
+                    </div>
+                `;
+            });
+        }
+
+        /**
+         * Adds selected Chilaquiles to cart.
+         */
+        function addChilaquilesToCart() {
+            const selectedSalsa = document.querySelector('input[name="chila-salsa"]:checked')?.value;
+            if (!selectedSalsa) {
+                showToast('Por favor, selecciona una salsa para los chilaquiles.', 'red');
+                return;
+            }
+
+            let itemPrice = CHILAQUILES_DATA.basePrice;
+            const selectedExtras = [];
+            document.querySelectorAll('#chilaquiles-extras input[type="checkbox"]:checked').forEach(checkbox => {
+                selectedExtras.push(checkbox.value);
+                itemPrice += parseFloat(checkbox.dataset.price);
+            });
+
+            let itemName = `Chilaquiles con salsa ${selectedSalsa}`;
+            if (selectedExtras.length > 0) {
+                itemName += ` (Extras: ${selectedExtras.join(', ')})`;
+            }
+
+            addItemToCart(itemName, itemPrice);
+        }
+
+        /**
+         * Renders the Bebidas menu.
+         */
+        function renderBebidasMenu() {
+            bebidasMenu.innerHTML = '';
+            BEBIDAS_DATA.forEach(bebida => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-4 rounded-lg shadow-md border-2 border-teal-200';
+                card.innerHTML = `
+                    <h4 class="text-lg font-semibold text-gray-800 mb-2">${bebida.name}</h4>
+                    <p class="text-xl font-bold text-purple-700 mb-3">${formatCurrency(bebida.price)}</p>
+                    <button onclick="addItemToCart('${bebida.name}', ${bebida.price})"
+                            class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                        Agregar
+                    </button>
+                `;
+                bebidasMenu.appendChild(card);
+            });
+        }
+
+        /**
+         * Renders the Combos menu.
+         */
+        function renderCombosMenu() {
+            combosMenu.innerHTML = '';
+            COMBOS_DATA.forEach(combo => {
+                const card = document.createElement('div');
+                card.className = 'bg-white p-4 rounded-lg shadow-md border-2 border-yellow-200';
+                card.innerHTML = `
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">${combo.name}</h4>
+                    <p class="text-sm text-gray-600 mb-2">${combo.description}</p>
+                    <p class="text-2xl font-bold text-purple-700 mb-3">${formatCurrency(combo.price)}</p>
+                    <button onclick="addItemToCart('${combo.name}', ${combo.price})"
+                            class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                        Agregar al Pedido
+                    </button>
+                `;
+                combosMenu.appendChild(card);
+            });
+        }
+
+        // --- Cart Management Functions ---
+
+        /**
+         * Adds a generic fixed-price item to the cart.
+         * @param {string} name - The name of the item.
+         * @param {number} price - The price of the item.
+         * @param {number} quantity - The quantity to add (defaults to 1).
+         */
+        function addItemToCart(name, price, quantity = 1) {
+            const existingItemIndex = shoppingCart.findIndex(item => item.name === name);
+
+            if (existingItemIndex !== -1) {
+                shoppingCart[existingItemIndex].quantity += quantity;
+            } else {
+                shoppingCart.push({ name, price, quantity: quantity });
+            }
+            updateCartDisplay();
+            showToast(`"${name}" (x${quantity}) agregado al pedido.`, 'green');
+        }
+
+        /**
+         * Removes an item from the cart or decrements its quantity.
+         * @param {string} name - The name of the item to remove.
+         */
+        function removeItemFromCart(name) {
+            const existingItemIndex = shoppingCart.findIndex(item => item.name === name);
+
+            if (existingItemIndex !== -1) {
+                if (shoppingCart[existingItemIndex].quantity > 1) {
+                    shoppingCart[existingItemIndex].quantity--;
+                } else {
+                    shoppingCart.splice(existingItemIndex, 1);
+                }
+            }
+            updateCartDisplay();
+            showToast(`Cantidad de "${name}" actualizada.`, 'orange');
+        }
+
+        /**
+         * Updates the display of the shopping cart and calculates totals.
+         */
+        function updateCartDisplay() {
+            orderList.innerHTML = ''; // Clear current list
+            if (shoppingCart.length === 0) {
+                emptyCartMessage.classList.remove('hidden');
+                orderList.appendChild(emptyCartMessage);
+            } else {
+                emptyCartMessage.classList.add('hidden');
+                shoppingCart.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0';
+                    itemElement.innerHTML = `
+                        <span class="text-gray-800 flex-1">${item.quantity}x ${item.name}</span>
+                        <span class="text-gray-600 mr-4">${formatCurrency(item.price * item.quantity)}</span>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="removeItemFromCart('${item.name}')" class="text-red-500 hover:text-red-700 text-lg">
+                                <i class="fas fa-minus-circle"></i>
+                            </button>
+                            <button onclick="addItemToCart('${item.name}', ${item.price})" class="text-green-500 hover:text-green-700 text-lg">
+                                <i class="fas fa-plus-circle"></i>
+                            </button>
+                        </div>
+                    `;
+                    orderList.appendChild(itemElement);
+                });
+            }
+            calculateTotals();
+        }
+
+        /**
+         * Calculates subtotal and total, updating the display.
+         */
+        function calculateTotals() {
+            let subtotal = shoppingCart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            let total = subtotal * (1 + currentTipPercentage);
+
+            subtotalSpan.textContent = formatCurrency(subtotal);
+            totalSpan.textContent = formatCurrency(total);
+        }
+
+        /**
+         * Clears all items from the shopping cart.
+         */
+        function clearOrder() {
+            shoppingCart = [];
+            currentTipPercentage = 0; // Reset tip
+            tipButtons.forEach(btn => btn.classList.remove('bg-purple-600', 'text-white'));
+            document.querySelector('.tip-button[data-tip="0"]').classList.add('bg-purple-600', 'text-white'); // Select 0% by default
+            updateCartDisplay();
+            showToast('El pedido ha sido limpiado.', 'red');
+        }
+
+        // --- Local Storage Management ---
+
+        /**
+         * Saves customer data to localStorage.
+         */
+        function saveCustomerData() {
+            const customerData = {
+                name: customerNameInput.value,
+                address: customerAddressInput.value,
+                phone: customerPhoneInput.value
+            };
+            localStorage.setItem('elSaborDeLasGordisCustomer', JSON.stringify(customerData));
+        }
+
+        /**
+         * Loads customer data from localStorage.
+         */
+        function loadCustomerData() {
+            const customerData = localStorage.getItem('elSaborDeLasGordisCustomer');
+            if (customerData) {
+                const parsedData = JSON.parse(customerData);
+                customerNameInput.value = parsedData.name || '';
+                customerAddressInput.value = parsedData.address || '';
+                customerPhoneInput.value = parsedData.phone || '';
+            }
+        }
+
+        // --- Validation and Submission ---
+
+        /**
+         * Validates the form before sending the order.
+         * @returns {boolean} True if valid, false otherwise.
+         */
+        function validateOrder() {
+            let isValid = true;
+            let errorMessage = '';
+
+            if (customerNameInput.value.trim() === '') {
+                errorMessage += 'El nombre es obligatorio.\n';
+                isValid = false;
+            }
+            if (customerAddressInput.value.trim() === '') {
+                errorMessage += 'La dirección es obligatoria.\n';
+                isValid = false;
+            }
+            if (customerPhoneInput.value.trim() === '' || !/^\d{10}$/.test(customerPhoneInput.value.trim())) {
+                errorMessage += 'El teléfono es obligatorio y debe ser un número de 10 dígitos.\n';
+                isValid = false;
+            }
+            if (shoppingCart.length === 0) {
+                errorMessage += 'Debes seleccionar al menos un producto para tu pedido.\n';
+                isValid = false;
+            }
+
+            if (!isValid) {
+                showToast(errorMessage, 'red');
+            }
+            return isValid;
+        }
+
+        /**
+         * Sends the order via WhatsApp.
+         */
+        function sendOrder() {
+            if (!validateOrder()) {
+                return; // Stop if validation fails
+            }
+
+            // Save customer data before sending
+            saveCustomerData();
+
+            const customerName = customerNameInput.value.trim();
+            const customerAddress = customerAddressInput.value.trim();
+            const customerPhone = customerPhoneInput.value.trim();
+            const customerReference = customerReferenceInput.value.trim();
+            const customerComments = customerCommentsInput.value.trim();
+
+            let orderMessage = `¡Hola! Tengo un nuevo pedido de "El Sabor de las Gordis":\n\n`;
+            orderMessage += `*Datos del Cliente:*\n`;
+            orderMessage += `Nombre: ${customerName}\n`;
+            orderMessage += `Dirección: ${customerAddress}\n`;
+            orderMessage += `Teléfono: ${customerPhone}\n`;
+            if (customerReference) {
+                orderMessage += `Referencia: ${customerReference}\n`;
+            }
+            if (customerComments) {
+                orderMessage += `Comentarios: ${customerComments}\n`;
+            }
+
+            orderMessage += `\n*Detalle del Pedido:*\n`;
+            shoppingCart.forEach(item => {
+                orderMessage += `- ${item.quantity}x ${item.name} (${formatCurrency(item.price * item.quantity)})\n`;
+            });
+
+            orderMessage += `\nSubtotal: ${subtotalSpan.textContent}\n`;
+            orderMessage += `Propina: ${formatCurrency(currentTipPercentage * (parseFloat(subtotalSpan.textContent.replace('$', '')) || 0))}\n`;
+            orderMessage += `*Total: ${totalSpan.textContent}*\n\n`;
+            orderMessage += `¡Gracias por tu preferencia!`;
+
+            const encodedMessage = encodeURIComponent(orderMessage);
+            const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+
+            window.open(whatsappUrl, '_blank'); // Open WhatsApp in a new tab
+
+            // Show confirmation modal
+            showModal();
+            clearOrder(); // Clear the cart after sending
+        }
+
+        // --- Modal Functions ---
+
+        /**
+         * Displays the confirmation modal.
+         */
+        function showModal() {
+            confirmationModal.classList.remove('hidden');
+        }
+
+        /**
+         * Hides the confirmation modal.
+         */
+        function closeModal() {
+            confirmationModal.classList.add('hidden');
+        }
+
+        // --- Toast Notification ---
+        let toastTimeout;
+
+        /**
+         * Displays a temporary toast notification.
+         * @param {string} message - The message to display.
+         * @param {'green'|'red'|'orange'|'blue'} type - The type of toast (affects color).
+         */
+        function showToast(message, type) {
+            // Remove any existing toast
+            const existingToast = document.getElementById('app-toast');
+            if (existingToast) {
+                existingToast.remove();
+                clearTimeout(toastTimeout);
+            }
+
+            const toast = document.createElement('div');
+            toast.id = 'app-toast';
+            toast.className = `fixed bottom-4 left-1/2 -translate-x-1/2 p-4 rounded-lg shadow-lg text-white font-semibold z-50 transition-all duration-300 ease-in-out transform opacity-0 scale-95`;
+
+            let bgColorClass = '';
+            switch (type) {
+                case 'green': bgColorClass = 'bg-green-500'; break;
+                case 'red': bgColorClass = 'bg-red-500'; break;
+                case 'orange': bgColorClass = 'bg-orange-500'; break;
+                case 'blue': bgColorClass = 'bg-blue-500'; break;
+                default: bgColorClass = 'bg-gray-700'; break;
+            }
+            toast.classList.add(bgColorClass);
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            // Animate in
+            setTimeout(() => {
+                toast.classList.remove('opacity-0', 'scale-95');
+                toast.classList.add('opacity-100', 'scale-100');
+            }, 50); // Small delay to ensure transition works
+
+            toastTimeout = setTimeout(() => {
+                // Animate out
+                toast.classList.remove('opacity-100', 'scale-100');
+                toast.classList.add('opacity-0', 'scale-95');
+                setTimeout(() => toast.remove(), 300); // Remove after transition
+            }, 3000); // Hide after 3 seconds
+        }
+
+        // --- Event Listeners and Initial Load ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Render all menu sections
+            renderGorditasMenu();
+            renderTacosHarinaMenu();
+            renderHuevosAlGustoOptions();
+            renderChilaquilesOptions();
+            renderBebidasMenu();
+            renderCombosMenu();
+
+            // Load customer data from localStorage
+            loadCustomerData();
+
+            // Attach event listeners for form inputs to save data
+            customerNameInput.addEventListener('input', saveCustomerData);
+            customerAddressInput.addEventListener('input', saveCustomerData);
+            customerPhoneInput.addEventListener('input', saveCustomerData);
+
+            // Attach event listeners for buttons
+            clearOrderBtn.addEventListener('click', clearOrder);
+            placeOrderBtn.addEventListener('click', sendOrder);
+
+            // Attach event listeners for tip buttons
+            tipButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tipButtons.forEach(btn => btn.classList.remove('bg-purple-600', 'text-white')); // Remove selected style from all
+                    button.classList.add('bg-purple-600', 'text-white'); // Add selected style to clicked
+                    currentTipPercentage = parseFloat(button.dataset.tip);
+                    calculateTotals();
+                });
+            });
+            // Select 0% tip by default on load
+            document.querySelector('.tip-button[data-tip="0"]').classList.add('bg-purple-600', 'text-white');
+
+            // Initial display update
+            updateCartDisplay();
+        });
+    </script>
 </body>
 </html>
