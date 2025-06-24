@@ -86,7 +86,7 @@
                     <i class="fas fa-tortilla mr-2"></i> Gorditas
                 </h3>
                 <!-- Placeholder Image for Gorditas -->
-                <img src=images/GORDITAS.svg alt="Imagen de Gorditas" class="block mx-auto w-48 h-48 md:w-64 md:h-64 rounded-lg mb-4 shadow-md object-cover">
+                <img src="images/GORDITAS.svg" alt="Imagen de Gorditas" class="block mx-auto w-48 h-48 md:w-64 md:h-64 rounded-lg mb-4 shadow-md object-cover">
                 <!-- Updated Gorditas section for quantity and guiso selection -->
                 <div id="gorditas-menu" class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
                     <div>
@@ -189,10 +189,24 @@
                 </h3>
                 <!-- Placeholder Image for Hotcakes -->
                 <img src="https://placehold.co/400x400/FFF7ED/B45309?text=Hotcakes" alt="Imagen de Hotcakes" class="block mx-auto w-48 h-48 md:w-64 md:h-64 rounded-lg mb-4 shadow-md object-cover">
-                <p class="text-lg text-gray-800 mb-4">3 piezas por $70</p>
-                <button onclick="addFixedItemToCart('Hotcakes (3 piezas)', 70)" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
-                    Agregar Hotcakes al Pedido
-                </button>
+                <!-- Updated Hotcakes section for quantity and selection -->
+                <div id="hotcakes-menu" class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+                    <div>
+                        <label for="hotcake-select" class="block text-gray-700 text-sm font-bold mb-2">Elige tu paquete:</label>
+                        <select id="hotcake-select" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-orange-500">
+                            <!-- Options will be dynamically loaded here by JavaScript -->
+                        </select>
+                    </div>
+                    <div>
+                        <label for="hotcake-quantity" class="block text-gray-700 text-sm font-bold mb-2">Cantidad de paquetes:</label>
+                        <input type="number" id="hotcake-quantity" value="1" min="1" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-orange-500">
+                    </div>
+                    <div class="md:col-span-2">
+                        <button onclick="addHotcakesToCart()" class="mt-4 w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                            Agregar Hotcakes al Pedido
+                        </button>
+                    </div>
+                </div>
             </div>
 
             <!-- Bebidas Section -->
@@ -384,10 +398,11 @@
             ]
         };
 
-        const HOTCAKES_DATA = {
-            name: 'Hotcakes (3 piezas)',
-            price: 70
-        };
+        // Modified HOTCAKES_DATA to support multiple package options
+        const HOTCAKES_DATA = [
+            { name: '2 piezas', price: 50 },
+            { name: '3 piezas', price: 70 }
+        ];
 
         const BEBIDAS_DATA = [
             { name: 'Refresco familia Coca-Cola', price: 25, type: 'refresco' },
@@ -449,6 +464,9 @@
         const chilaquilesExtras = document.getElementById('chilaquiles-extras');
         const bebidasMenu = document.getElementById('bebidas-menu');
         const combosMenu = document.getElementById('combos-menu');
+        // New Hotcakes specific DOM element
+        const hotcakesMenu = document.getElementById('hotcakes-menu');
+
 
         const orderList = document.getElementById('order-list');
         const subtotalSpan = document.getElementById('subtotal');
@@ -683,11 +701,61 @@
 
             let itemName = `Chilaquiles con salsa ${selectedSalsa}`;
             if (selectedExtras.length > 0) {
-                itemName += ` (Extras: ${selectedExtras.join(', ')}`;
+                itemName += ` (Extras: ${selectedExtras.join(', ')})`;
             }
 
             addItemToCart(itemName, itemPrice);
         }
+
+        /**
+         * Renders the Hotcakes menu with quantity and selection.
+         */
+        function renderHotcakesMenu() {
+            hotcakesMenu.innerHTML = `
+                <div>
+                    <label for="hotcake-select" class="block text-gray-700 text-sm font-bold mb-2">Elige tu paquete:</label>
+                    <select id="hotcake-select" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-orange-500">
+                        ${HOTCAKES_DATA.map(packageOption => {
+                            return `<option value="${packageOption.name}|${packageOption.price}">Paquete de ${packageOption.name} (${formatCurrency(packageOption.price)})</option>`;
+                        }).join('')}
+                    </select>
+                </div>
+                <div>
+                    <label for="hotcake-quantity" class="block text-gray-700 text-sm font-bold mb-2">Cantidad de paquetes:</label>
+                    <input type="number" id="hotcake-quantity" value="1" min="1" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-orange-500">
+                </div>
+                <div class="md:col-span-2">
+                    <button onclick="addHotcakesToCart()" class="mt-4 w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                        Agregar Hotcakes al Pedido
+                    </button>
+                </div>
+            `;
+        }
+
+        /**
+         * Adds selected Hotcakes to the cart.
+         */
+        function addHotcakesToCart() {
+            const selectElement = document.getElementById('hotcake-select');
+            const quantityInput = document.getElementById('hotcake-quantity');
+
+            const selectedOptionValue = selectElement.value;
+            const [packageName, pricePerUnitStr] = selectedOptionValue.split('|');
+            const pricePerUnit = parseFloat(pricePerUnitStr);
+            const quantity = parseInt(quantityInput.value);
+
+            if (isNaN(quantity) || quantity < 1) {
+                showToast('La cantidad de paquetes debe ser un número válido mayor o igual a 1.', 'red');
+                return;
+            }
+
+            const itemName = `Hotcakes (${packageName})`;
+            addItemToCart(itemName, pricePerUnit, quantity);
+
+            // Reset quantity to 1 after adding to cart
+            quantityInput.value = 1;
+        }
+
 
         /**
          * Renders the Bebidas menu with quantity and selection.
@@ -809,14 +877,16 @@
                 shoppingCart.forEach(item => {
                     const itemElement = document.createElement('div');
                     itemElement.className = 'flex justify-between items-center py-2 border-b border-gray-100 last:border-b-0';
+                    // Using encodeURIComponent and decodeURIComponent for robustness against special characters in item names
+                    const encodedItemName = encodeURIComponent(item.name);
                     itemElement.innerHTML = `
                         <span class="text-gray-800 flex-1">${item.quantity}x ${item.name}</span>
                         <span class="text-gray-600 mr-4">${formatCurrency(item.price * item.quantity)}</span>
                         <div class="flex items-center space-x-2">
-                            <button onclick="removeItemFromCart('${item.name}')" class="text-red-500 hover:text-red-700 text-lg">
+                            <button onclick="removeItemFromCart(decodeURIComponent('${encodedItemName}'))" class="text-red-500 hover:text-red-700 text-lg">
                                 <i class="fas fa-minus-circle"></i>
                             </button>
-                            <button onclick="addItemToCart('${item.name}', ${item.price})" class="text-green-500 hover:text-green-700 text-lg">
+                            <button onclick="addItemToCart(decodeURIComponent('${encodedItemName}'), ${item.price})" class="text-green-500 hover:text-green-700 text-lg">
                                 <i class="fas fa-plus-circle"></i>
                             </button>
                         </div>
@@ -1028,7 +1098,8 @@
             renderTacosHarinaMenu();
             renderHuevosAlGustoOptions();
             renderChilaquilesOptions();
-            renderBebidasMenu(); // Now calls the updated renderBebidasMenu
+            renderHotcakesMenu(); // Now calls the updated renderHotcakesMenu
+            renderBebidasMenu();
             renderCombosMenu();
 
             // Load customer data from localStorage
