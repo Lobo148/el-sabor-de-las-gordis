@@ -45,9 +45,16 @@
             Carr. a La Paz km 1-No 706, La Olleria, 78726 Matehuala, S.L.P.
             <span class="block md:inline-block">(frente al oxxo al lado de la escuela Ma del carmen castillo)</span>
         </p>
-        <p class="text-gray-600 text-sm md:text-base">
+        <p class="text-gray-600 text-sm md:text-base mb-4">
             <i class="fas fa-phone mr-2 text-purple-600"></i>
             Teléfono: 488 126 5262
+        </p>
+        <!-- Social Media Link -->
+        <p class="text-gray-600 text-sm md:text-base">
+            <a href="https://www.facebook.com/share/1Hh9MZKofV/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 font-semibold transition duration-200 flex items-center justify-center">
+                <i class="fab fa-facebook-square mr-2 text-2xl"></i>
+                Visita nuestra página de Facebook
+            </a>
         </p>
     </header>
 
@@ -79,7 +86,7 @@
                     <i class="fas fa-tortilla mr-2"></i> Gorditas
                 </h3>
                 <!-- Placeholder Image for Gorditas -->
-                <img src="https://placehold.co/150x150/EDE9FE/5B21B6?text=Gorditas" alt="Imagen de Gorditas" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <img src="https://placehold.co/400x400/EDE9FE/5B21B6?text=Gorditas" alt="Imagen de Gorditas" class="block mx-auto w-48 h-48 md:w-64 md:h-64 rounded-lg mb-4 shadow-md object-cover">
                 <!-- Updated Gorditas section for quantity and guiso selection -->
                 <div id="gorditas-menu" class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
                     <div>
@@ -106,7 +113,7 @@
                     <i class="fas fa-taco mr-2"></i> Tacos de Harina
                 </h3>
                 <!-- Placeholder Image for Tacos de Harina -->
-                <img src="https://placehold.co/150x150/DBEAFE/1D4ED8?text=Tacos" alt="Imagen de Tacos de Harina" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <img src="https://placehold.co/400x400/DBEAFE/1D4ED8?text=Tacos" alt="Imagen de Tacos de Harina" class="block mx-auto w-48 h-48 md:w-64 md:h-64 rounded-lg mb-4 shadow-md object-cover">
                 <!-- Updated Tacos de Harina section for quantity and guiso selection -->
                 <div id="tacos-harina-menu" class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
                     <div>
@@ -133,7 +140,7 @@
                     <i class="fas fa-egg mr-2"></i> Huevos al Gusto ($65)
                 </h3>
                 <!-- Placeholder Image for Huevos al Gusto -->
-                <img src="https://placehold.co/150x150/ECFDF5/047857?text=Huevos" alt="Imagen de Huevos al Gusto" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <img src="https://placehold.co/400x400/ECFDF5/047857?text=Huevos" alt="Imagen de Huevos al Gusto" class="block mx-auto w-48 h-48 md:w-64 md:h-64 rounded-lg mb-4 shadow-md object-cover">
                 <div class="mb-2">
                     <label class="block text-gray-700 text-sm font-bold mb-1">Tipo:</label>
                     <div id="huevos-tipos" class="flex flex-wrap gap-2">
@@ -157,7 +164,7 @@
                     <i class="fas fa-pepper-hot mr-2"></i> Chilaquiles ($90)
                 </h3>
                 <!-- Placeholder Image for Chilaquiles -->
-                <img src="https://placehold.co/150x150/FEF2F2/DC2626?text=Chilaquiles" alt="Imagen de Chilaquiles" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <img src="https://placehold.co/400x400/FEF2F2/DC2626?text=Chilaquiles" alt="Imagen de Chilaquiles" class="block mx-auto w-48 h-48 md:w-64 md:h-64 rounded-lg mb-4 shadow-md object-cover">
                 <div class="mb-2">
                     <label class="block text-gray-700 text-sm font-bold mb-1">Salsa:</label>
                     <div id="chilaquiles-salsas" class="flex flex-wrap gap-2">
@@ -181,7 +188,7 @@
                     <i class="fas fa-pancakes mr-2"></i> Hotcakes
                 </h3>
                 <!-- Placeholder Image for Hotcakes -->
-                <img src="https://placehold.co/150x150/FFF7ED/B45309?text=Hotcakes" alt="Imagen de Hotcakes" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <img src="https://placehold.co/400x400/FFF7ED/B45309?text=Hotcakes" alt="Imagen de Hotcakes" class="block mx-auto w-48 h-48 md:w-64 md:h-64 rounded-lg mb-4 shadow-md object-cover">
                 <p class="text-lg text-gray-800 mb-4">3 piezas por $70</p>
                 <button onclick="addFixedItemToCart('Hotcakes (3 piezas)', 70)" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
                     Agregar Hotcakes al Pedido
@@ -194,9 +201,24 @@
                     <i class="fas fa-cocktail mr-2"></i> Bebidas
                 </h3>
                 <!-- Placeholder Image for Bebidas -->
-                <img src="https://placehold.co/150x150/F0FDFA/0D9488?text=Bebidas" alt="Imagen de Bebidas" class="block mx-auto rounded-lg mb-4 shadow-md">
-                <div id="bebidas-menu" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <!-- Bebidas items will be dynamically loaded here -->
+                <img src="https://placehold.co/400x400/F0FDFA/0D9488?text=Bebidas" alt="Imagen de Bebidas" class="block mx-auto w-48 h-48 md:w-64 md:h-64 rounded-lg mb-4 shadow-md object-cover">
+                <!-- Updated Bebidas section for quantity and selection -->
+                <div id="bebidas-menu" class="grid grid-cols-1 md:grid-cols-2 gap-4 items-end">
+                    <div>
+                        <label for="bebida-select" class="block text-gray-700 text-sm font-bold mb-2">Elige tu bebida:</label>
+                        <select id="bebida-select" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-teal-500">
+                            <!-- Options will be dynamically loaded here by JavaScript -->
+                        </select>
+                    </div>
+                    <div>
+                        <label for="bebida-quantity" class="block text-gray-700 text-sm font-bold mb-2">Cantidad:</label>
+                        <input type="number" id="bebida-quantity" value="1" min="1" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-teal-500">
+                    </div>
+                    <div class="md:col-span-2">
+                        <button onclick="addBebidaToCart()" class="mt-4 w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                            Agregar Bebida(s) al Pedido
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -206,7 +228,7 @@
                     <i class="fas fa-boxes mr-2"></i> Combos
                 </h3>
                 <!-- Placeholder Image for Combos -->
-                <img src="https://placehold.co/150x150/FFFBEB/B45309?text=Combos" alt="Imagen de Combos" class="block mx-auto rounded-lg mb-4 shadow-md">
+                <img src="https://placehold.co/600x400/FFFBEB/B45309?text=Combos" alt="Imagen de Combos" class="block mx-auto w-48 h-32 md:w-64 md:h-48 rounded-lg mb-4 shadow-md object-cover">
                 <div id="combos-menu" class="grid grid-cols-1 gap-4">
                     <!-- Combos will be dynamically loaded here -->
                 </div>
@@ -354,8 +376,9 @@
             salsas: ['Roja', 'Verde', 'Picosa'],
             extras: [
                 { name: 'Huevo', price: 5 },
-                { name: 'Guiso sin carne', price: 5, type: 'guiso-sin-carne' },
-                { name: 'Guiso con carne (Pollo, Arrachera, Chicharrón, Pastor)', price: 9, type: 'guiso-con-carne' },
+                { name: 'Pollo', price: 9 },
+                { name: 'Arrachera', price: 9 },
+                { name: 'Chicharrón', price: 9 },
                 { name: 'Extra Queso', price: 10 },
                 { name: 'Pan extra rebanado', price: 5 }
             ]
@@ -660,30 +683,58 @@
 
             let itemName = `Chilaquiles con salsa ${selectedSalsa}`;
             if (selectedExtras.length > 0) {
-                itemName += ` (Extras: ${selectedExtras.join(', ')})`;
+                itemName += ` (Extras: ${selectedExtras.join(', ')}`;
             }
 
             addItemToCart(itemName, itemPrice);
         }
 
         /**
-         * Renders the Bebidas menu.
+         * Renders the Bebidas menu with quantity and selection.
          */
         function renderBebidasMenu() {
-            bebidasMenu.innerHTML = '';
-            BEBIDAS_DATA.forEach(bebida => {
-                const card = document.createElement('div');
-                card.className = 'bg-white p-4 rounded-lg shadow-md border-2 border-teal-200';
-                card.innerHTML = `
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">${bebida.name}</h4>
-                    <p class="text-xl font-bold text-purple-700 mb-3">${formatCurrency(bebida.price)}</p>
-                    <button onclick="addItemToCart('${bebida.name}', ${bebida.price})"
-                            class="w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
-                        Agregar
+            bebidasMenu.innerHTML = `
+                <div>
+                    <label for="bebida-select" class="block text-gray-700 text-sm font-bold mb-2">Elige tu bebida:</label>
+                    <select id="bebida-select" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-teal-500">
+                        ${BEBIDAS_DATA.map(bebida => {
+                            return `<option value="${bebida.name}|${bebida.price}">${bebida.name} (${formatCurrency(bebida.price)})</option>`;
+                        }).join('')}
+                    </select>
+                </div>
+                <div>
+                    <label for="bebida-quantity" class="block text-gray-700 text-sm font-bold mb-2">Cantidad:</label>
+                    <input type="number" id="bebida-quantity" value="1" min="1" class="shadow appearance-none border rounded-lg w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-teal-500">
+                </div>
+                <div class="md:col-span-2">
+                    <button onclick="addBebidaToCart()" class="mt-4 w-full bg-teal-500 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+                        Agregar Bebida(s) al Pedido
                     </button>
-                `;
-                bebidasMenu.appendChild(card);
-            });
+                </div>
+            `;
+        }
+
+        /**
+         * Adds selected Bebidas to the cart.
+         */
+        function addBebidaToCart() {
+            const selectElement = document.getElementById('bebida-select');
+            const quantityInput = document.getElementById('bebida-quantity');
+
+            const selectedOptionValue = selectElement.value;
+            const [bebidaName, pricePerUnitStr] = selectedOptionValue.split('|');
+            const pricePerUnit = parseFloat(pricePerUnitStr);
+            const quantity = parseInt(quantityInput.value);
+
+            if (isNaN(quantity) || quantity < 1) {
+                showToast('La cantidad de bebidas debe ser un número válido mayor o igual a 1.', 'red');
+                return;
+            }
+
+            addItemToCart(bebidaName, pricePerUnit, quantity);
+
+            // Reset quantity to 1 after adding to cart
+            quantityInput.value = 1;
         }
 
         /**
@@ -977,7 +1028,7 @@
             renderTacosHarinaMenu();
             renderHuevosAlGustoOptions();
             renderChilaquilesOptions();
-            renderBebidasMenu();
+            renderBebidasMenu(); // Now calls the updated renderBebidasMenu
             renderCombosMenu();
 
             // Load customer data from localStorage
